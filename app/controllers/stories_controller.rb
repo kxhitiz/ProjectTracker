@@ -15,9 +15,9 @@ class StoriesController < ApplicationController
     @story = @project.stories.new(params[:story])
 
     if @story.save
-      redirect_to project_path(@project), :notice => "Story Created"
+      redirect_to project_path(@project), :notice => "Story Created Successfully"
     else
-      render :action => "new", :alert => "Unable to create Story"
+      render :action => "new", :alert => "Oops! Unable to create Story"
     end
   end
 

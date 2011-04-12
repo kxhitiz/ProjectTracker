@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @stories = @project.stories
   end
 
   def create

@@ -8,4 +8,7 @@
  %span Stories
  %span#addStory
   =link_to "+Add Story", new_project_story_path(@project)
-
+%br
+.stories_list
+ - @stories.each do |story|
+  = "Title: #{story.title}"
