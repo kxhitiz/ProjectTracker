@@ -34,11 +34,14 @@ group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'capybara', :git => 'https://github.com/jnicklas/capybara.git'
+  gem 'capybara'
   gem 'machinist', '>= 2.0.0.beta1'
   gem 'ffaker'
   gem 'cucumber-rails'
   gem 'rspec-rails'
+  gem 'devise'
+  gem 'formtastic'
+  gem 'haml-rails'
 end
 
 group :development do

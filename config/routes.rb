@@ -1,5 +1,13 @@
 ProjectTracker::Application.routes.draw do
 
+  get "stories/index"
+
+  get "stories/new"
+
+  get "stories/show"
+
+  get "stories/create"
+
   devise_for :people
 
   get "home/index"

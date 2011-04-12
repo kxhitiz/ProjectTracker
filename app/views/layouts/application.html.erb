@@ -17,9 +17,16 @@
       </p>
       <h1 class="logo"><a href="#">PTracker</a></h1>
       <ul>
-        <li><a class= "active" href="index.html">Home</a></li>
+        <li><%= link_to "Home", projects_path %> </li>
         <li><a href="">ABOUT</a></li>
-        <li><%= link_to "Sign In", new_person_session_path %> </a></li>
+        <li>
+            <% if person_signed_in? %>
+                <%= link_to "LogOut", destroy_person_session_path %>
+            <% else %>
+                <%= link_to "LogIn", new_person_session_path %>
+            <% end %>
+        </li>
+
       </ul>
     </div>
   </div>
@@ -32,6 +39,8 @@
         <h2><span>Welcome</span>to ProjectTracker</h2>
       </div> <br />
       <div id="content">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <%= yield %>
       </div>
 
