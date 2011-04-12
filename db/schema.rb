@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412064630) do
+ActiveRecord::Schema.define(:version => 20110412094132) do
 
   create_table "people", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20110412064630) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
@@ -32,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110412064630) do
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "points"
+    t.integer  "points",      :default => 0
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110412064630) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
 end

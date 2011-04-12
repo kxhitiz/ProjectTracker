@@ -1,2 +1,11 @@
-%h1 Projects#show
-%p Find me in app/views/projects/show.html.haml
+%h1
+ = "#{@project.title} (#{@project.points})"
+%br
+= "#{@project.description}"
+%br
+
+%h2
+ %span Stories
+ %span#addStory
+  =link_to "+Add Story", new_project_story_path(@project)
+

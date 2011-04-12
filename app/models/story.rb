@@ -1,5 +1,10 @@
 class Story < ActiveRecord::Base
   belongs_to :project
+  before_create :setDefaults
+
+  def setDefaults
+
+  end
 end
 
 
