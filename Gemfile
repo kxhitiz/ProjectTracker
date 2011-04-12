@@ -48,5 +48,6 @@ group :development do
     gem 'devise'
     gem 'haml-rails'
     gem 'will_paginate'
+    gem 'annotate'''
 end
 

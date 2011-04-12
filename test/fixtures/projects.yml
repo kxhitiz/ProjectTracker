@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  points: 1
+  person_id: 1
+
+two:
+  title: MyString
+  description: MyText
+  points: 1
+  person_id: 1
+
+# == Schema Information
+#
+# Table name: projects
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  description :text
+#  points      :integer
+#  person_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
