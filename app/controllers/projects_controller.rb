@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  before_filter
 
   def index
     @projects = Project.all
