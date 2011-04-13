@@ -12,13 +12,10 @@ ProjectTracker::Application.routes.draw do
 
   get "home/index"
 
-  resources :stories do
-    post "assign"
-    get "release"
-  end
 
   resources :projects do
     resources :stories do
+      post "assign"
     end
 
     post "addCollaborator"

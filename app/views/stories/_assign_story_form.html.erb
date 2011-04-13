@@ -1,0 +1,5 @@
+<% form_tag (project_story_assign_path(@project,@story)) do %>
+  <%= select_tag "people", options_from_collection_for_select(@people, "id", "name") %>
+  <%= submit_tag "Assign" %>
+<% end %>
+

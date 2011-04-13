@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+ [
+    {:name => "HariBahadur", :email => "hari@bahadur.com", :password => "password"},
+    {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},
+    {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},
+    {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},
+    {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},
+    {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"}
+    ].each do |attrs|
+      Person.find_or_create_by_name_and_email(attrs)
+    end
+

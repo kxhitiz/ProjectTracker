@@ -134,3 +134,12 @@ ul#infoPan li p.descrip						{margin-top:13px; font-size:12px; line-height:16px;
   border: 1px solid #DDDDDD
 }
 
+a {
+  color: #05496E;
+}
+
+a:hover {
+    color: #0074B3;
+    text-decoration: underline;
+}
+
