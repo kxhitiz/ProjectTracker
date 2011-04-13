@@ -6,11 +6,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @all_people = Person.all
     @project = Project.find(params[:id])
     @stories = @project.stories
     @owner = Person.find(@project.person_id)
     @collaborators = Connection.find(:all, :conditions => ['project_id = ?', params[:id] ])
-    @people = Person.all
   end
 
   def create
@@ -48,6 +48,26 @@ class ProjectsController < ApplicationController
        redirect_to projects_path, :notice => "Project Deleted Successfully"
     else
        redirect_to projects_path, :alert => "Project Deletion Failed!!"
+    end
+  end
+
+  def addCollaborator
+    @project = Project.find(params[:project_id])
+    @person = Person.find(params[:people])
+    if Connection.find_or_create_by_person_id_and_project_id(:person_id => @person.id, :project_id => @project.id, :types => "collaborator")
+      redirect_to project_path(@project), :notice => " #{@person.name} is now added to #{@project.title}"
+    else
+      redirect_to project_path(@project), :notice => " Unable to add #{@person.name} to #{@project.title}"
+    end
+  end
+
+  def removeCollaborator
+    @project = Project.find(params[:project_id])
+    @person = Person.find(params[:person_id])
+    if Connection.delete_all(:project_id => @project.id, :person_id => @person.id)
+      redirect_to project_path(@project), :alert => " #{@person.name} is now removed from #{@project.title}"
+    else
+      redirect_to project_path(@project), :alert => " Unable to remove #{@person.name} from #{@project.title}"
     end
   end
 

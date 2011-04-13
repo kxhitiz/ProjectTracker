@@ -8,12 +8,14 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @story = Story.find(params[:id])
+
   end
 
   def create
     @project = Project.find(params[:project_id])
     @story = @project.stories.new(params[:story])
-
+    @story.status = "Not Yet Started"
     if @story.save
       redirect_to project_path(@project), :notice => "Story Created Successfully"
     else
@@ -21,4 +23,12 @@ class StoriesController < ApplicationController
     end
   end
 
+  def assign
+  end
+
+  def release
+
+  end
+
 end
+

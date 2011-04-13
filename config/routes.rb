@@ -1,19 +1,28 @@
 ProjectTracker::Application.routes.draw do
 
-  get "stories/index"
+  #get "stories/index"
 
-  get "stories/new"
+  #get "stories/new"
 
-  get "stories/show"
+  #get "stories/show"
 
-  get "stories/create"
+  #get "stories/create"
 
   devise_for :people
 
   get "home/index"
 
+  resources :stories do
+    post "assign"
+    get "release"
+  end
+
   resources :projects do
-    resources :stories
+    resources :stories do
+    end
+
+    post "addCollaborator"
+    get "removeCollaborator"
   end
 
   # The priority is based upon order of creation:

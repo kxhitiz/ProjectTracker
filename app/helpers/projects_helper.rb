@@ -6,5 +6,9 @@ module ProjectsHelper
     end
     @people
   end
+
+  def calculate_status(project)
+
+  end
 end
 

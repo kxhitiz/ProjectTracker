@@ -1,12 +1,13 @@
 People in this Projects <br />
 <% @connected_people = connected_people(@collaborators) %>
 <% @connected_people.each do |person| %>
-    <%= person.name %> <br />
+    <%= person.name %>
+    <%= link_to "Remove", project_removeCollaborator_path(@project.id, :person_id => person.id) %> <br />
 <% end %>
 
 <%# add_member_path(@project) %>
-<% form_tag do %>
-<%= select_tag "people", options_from_collection_for_select(@people, "id", "name") %>
+<% form_tag (project_addCollaborator_path(@project)) do %>
+<%= select_tag "people", options_from_collection_for_select(@all_people, "id", "name") %>
 <%= submit_tag "Assign" %>
 <% end %>
 

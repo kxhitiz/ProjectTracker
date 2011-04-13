@@ -12,12 +12,13 @@
 #stories_list
   .stories_list
     - @stories.each do |story|
-      = "Title: #{story.title}"
+      = link_to "#{story.title}", project_story_path(@project, story)
       %br
       = "Description: #{story.description}"
       %br
       = "Owner: #{@owner.name}"
       %br
+      = calculate_status(@project)
       %br
 #people_project
   = render "shared/connected_people"
