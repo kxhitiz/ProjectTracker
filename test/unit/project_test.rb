@@ -7,6 +7,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -14,7 +15,7 @@ end
 #  id          :integer         not null, primary key
 #  title       :string(255)
 #  description :text
-#  points      :integer
+#  points      :integer         default(0)
 #  person_id   :integer
 #  created_at  :datetime
 #  updated_at  :datetime

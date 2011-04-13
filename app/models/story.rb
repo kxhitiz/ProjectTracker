@@ -2,10 +2,14 @@ class Story < ActiveRecord::Base
   belongs_to :project
   before_create :setDefaults
 
+  validates :weight, :presence => true, :numericality => true
+  validates :title, :presence => true, :uniqueness => true
+
   def setDefaults
 
   end
 end
+
 
 
 # == Schema Information
@@ -20,5 +24,6 @@ end
 #  person_id   :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  status      :string(255)
 #
 

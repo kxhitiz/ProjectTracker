@@ -7,6 +7,7 @@ class StoryTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: stories
@@ -19,5 +20,6 @@ end
 #  person_id   :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  status      :string(255)
 #
 

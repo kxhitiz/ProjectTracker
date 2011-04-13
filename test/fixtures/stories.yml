@@ -14,6 +14,7 @@ two:
   weight: 1
   person_id: 1
 
+
 # == Schema Information
 #
 # Table name: stories
@@ -26,5 +27,6 @@ two:
 #  person_id   :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  status      :string(255)
 #
 

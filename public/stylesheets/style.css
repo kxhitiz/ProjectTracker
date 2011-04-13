@@ -3,7 +3,7 @@ body										{margin:0; background:#151515; font-family:"Trebuchet MS", Arial, 
 *											{margin:0; padding:0}
 a											{outline:0; text-decoration:none}
 img											{border:0}
-h1,h2,h3,h4,h5,h6							{font-weight:normal}
+/*h1,h2,h3,h4,h5,h6							{font-weight:normal}*/
 li											{list-style:none}
 
 #head										{width:100%; float:left; background:url(../images/headBg.png) repeat-x}
@@ -39,7 +39,7 @@ img.ban_bg									{width:auto; float:left; position:absolute; top:139px; left:-
 #ct_pan a.tweet								{width:95px; height:102px; float:right; position:absolute; right:-50px; top:42px; background:url(../images/tweet.png) no-repeat}
 
 #welcom_pan									{width:100%; margin-top:37px; padding-bottom:36px; float:left; border-bottom:#c9c9c9 solid 1px; background:url(../images/crosslines.png) no-repeat right 8px}
-h2											{width:auto; margin-top:9px; float:left; font-family:Arial, Helvetica, sans-serif; font-size:26px; color:#31a1ff; font-weight:bold; line-height:30px; letter-spacing:-1.7px}
+h2											{width:auto; margin-top:9px; font-family:Arial, Helvetica, sans-serif; font-size:26px; color:#31a1ff; font-weight:bold; line-height:30px; letter-spacing:-1.7px}
 h2 span										{color:#3b3b3b; text-transform:uppercase; margin-right:5px}
 welcom_pan a.brochure						{width:auto; height:54px; margin-right:31px; padding:0 8px 0 0; float:right; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:12px; color:#ffffff; font-weight:bold; line-height:54px; background:url(../images/buttonBg.png) no-repeat right -54px}
 #welcom_pan a.brochure span					{width:auto; height:54px; padding:0 13px 0 23px; float:left; background:url(../images/buttonBg.png) no-repeat 0 0}
@@ -107,8 +107,30 @@ ul#infoPan li p.descrip						{margin-top:13px; font-size:12px; line-height:16px;
 
 
 /* custom css */
-#content {
-    clear: both;
+#main_content {
+  padding: 10px;
+  margin: 10px;
+}
 
+.notice {
+  color: #0672D1;
+}
+
+.alert {
+  color: #7D0202;
+}
+
+#stories_list {
+  float: left;
+  border: 1px solid #DDDDDD;
+  width: 540px;
+  margin-right: 4px;
+  padding: 2px;
+}
+
+#people_project {
+  float: left;
+  text-align: right;
+  border: 1px solid #DDDDDD
 }
 

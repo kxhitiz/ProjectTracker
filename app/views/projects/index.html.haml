@@ -1,9 +1,11 @@
-%h1 My Projects
-= link_to "+Add Project", new_project_path
+#project_index_header
+ %h2 My Projects
+ = link_to "+Add Project", new_project_path
+
 #my_projects
-  - @projects.each do |project|
-    = link_to "#{project.title}", project_path(project)
-    %br
-    = "#{project.description}"
-    %br
-    %br
+ - @projects.each do |project|
+  = link_to "#{project.title}", project_path(project)
+  = link_to "Edit", edit_project_path(project)
+  = link_to "Delete", project_path(project), :confirm => "Sure, wanna delete?", :method => :delete
+  %br
+

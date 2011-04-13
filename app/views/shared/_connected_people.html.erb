@@ -1,0 +1,12 @@
+People in this Projects <br />
+<% @connected_people = connected_people(@collaborators) %>
+<% @connected_people.each do |person| %>
+    <%= person.name %> <br />
+<% end %>
+
+<%# add_member_path(@project) %>
+<% form_tag do %>
+<%= select_tag "people", options_from_collection_for_select(@people, "id", "name") %>
+<%= submit_tag "Assign" %>
+<% end %>
+

@@ -1,14 +1,24 @@
-%h1
- = "#{@project.title} (#{@project.points})"
+%h2
+  = "#{@project.title}"
+  = pluralize("#{@project.points}","point")
 %br
 = "#{@project.description}"
 %br
-
-%h2
- %span Stories
- %span#addStory
-  =link_to "+Add Story", new_project_story_path(@project)
 %br
-.stories_list
- - @stories.each do |story|
-  = "Title: #{story.title}"
+#stories_header
+  %span Stories
+  %span#addStory
+    = link_to "+Add Story", new_project_story_path(@project)
+#stories_list
+  .stories_list
+    - @stories.each do |story|
+      = "Title: #{story.title}"
+      %br
+      = "Description: #{story.description}"
+      %br
+      = "Owner: #{@owner.name}"
+      %br
+      %br
+#people_project
+  = render "shared/connected_people"
+

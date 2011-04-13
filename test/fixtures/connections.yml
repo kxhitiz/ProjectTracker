@@ -1,0 +1,24 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  person_id: 1
+  project_id: 1
+  type: MyString
+
+two:
+  person_id: 1
+  project_id: 1
+  type: MyString
+
+# == Schema Information
+#
+# Table name: connections
+#
+#  id         :integer         not null, primary key
+#  person_id  :integer
+#  project_id :integer
+#  types      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
