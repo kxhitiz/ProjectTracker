@@ -15,7 +15,9 @@
         <input name="search" type="text" class="txt" />
         <input name="search-btn" type="submit" class="btn" value="SEARCH" />
         <span id="welcome_user">
-          <%= " Welcome #{current_person.name}" %>
+          <% if person_signed_in? %>
+              <%= " Welcome #{current_person.name}" %>
+          <% end %>
         </span>
       </p>
       <h1 class="logo"><a href="#">PTracker</a></h1>

@@ -17,6 +17,7 @@ class StoriesController < ApplicationController
     @project = Project.find(params[:project_id])
     @story = @project.stories.new(params[:story])
     @story.status = "Not Yet Started"
+    #@story.person_id = current_person.id
     if @story.save
       redirect_to project_path(@project), :notice => "Story Created Successfully"
     else

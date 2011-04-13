@@ -7,6 +7,9 @@
   = render "status_change_form"
 .assign_story
   = "Currently assigned to "
-  = getName(@story.person_id)
+  - if @story.person_id
+    = getName(@story.person_id)
+  - else
+    = "none"
   = render "assign_story_form"
 

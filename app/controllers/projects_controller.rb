@@ -46,6 +46,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
+     Connection.where("project_id = ?", @project.id).delete_all
      if @project.destroy
        redirect_to projects_path, :notice => "Project Deleted Successfully"
     else

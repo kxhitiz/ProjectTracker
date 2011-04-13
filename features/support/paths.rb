@@ -13,6 +13,18 @@ module NavigationHelpers
     when /the new adding_project page/
       new_project_path
 
+    when /the new story page/
+      project_stories_path
+
+     when /the projects page/
+      projects_path
+
+
+
+
+
+
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

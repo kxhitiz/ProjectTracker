@@ -11,6 +11,10 @@
     = link_to "+Add Story", new_project_story_path(@project)
 #stories_list
   .stories_list
+    - if @stories.each.count < 1
+      %em
+        = "No Stories Yet!"
+
     - @stories.each do |story|
       = link_to "#{story.title}", project_story_path(@project, story)
       %br
