@@ -52,5 +52,6 @@ group :development do
     gem 'haml-rails'
     gem 'will_paginate'
     gem 'annotate'
+    gem 'irbtools'
 end
 

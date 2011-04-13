@@ -1,12 +1,17 @@
-People in this Projects <br />
+People in this Project <br />
 <% @connected_people = connected_people(@collaborators) %>
 <% @connected_people.each do |person| %>
     <%= person.name %>
-    <%= link_to "Remove", project_removeCollaborator_path(@project.id, :person_id => person.id) %> <br />
+    <% if is_owner(@project) %>
+      <%= link_to "Remove", project_removeCollaborator_path(@project.id, :person_id => person.id) %>
+    <% end %>
+    <br />
 <% end %>
 
-<%= form_tag (project_addCollaborator_path(@project)) do %>
-<%= select_tag "people", options_from_collection_for_select(@all_people, "id", "name") %>
-<%= submit_tag "Assign" %>
+<% if is_owner(@project) %>
+  <%= form_tag (project_addCollaborator_path(@project)) do %>
+    <%= select_tag "people", options_from_collection_for_select(@all_people, "id", "name") %>
+    <%= submit_tag "Add Now" %>
+  <% end %>
 <% end %>
 

@@ -8,7 +8,8 @@
 #stories_header
   %span Stories
   %span#addStory
-    = link_to "+Add Story", new_project_story_path(@project)
+    - if is_owner(@project)
+      = link_to "+Add Story", new_project_story_path(@project)
 #stories_list
   .stories_list
     - if @stories.each.count < 1
@@ -16,16 +17,17 @@
         = "No Stories Yet!"
 
     - @stories.each do |story|
+      %br
       = link_to "#{story.title}", project_story_path(@project, story)
       %br
       = "Description: #{story.description}"
       %br
       = "Owner: #{@owner.name}"
       %br
-      = pluralize(@project.points, "point")
+      = pluralize(story.weight, "point")
       %br
       = calculate_status(@project)
-      %br
+      %hr
 #people_project
   = render "shared/connected_people"
 

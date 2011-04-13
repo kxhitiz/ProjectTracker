@@ -143,3 +143,8 @@ a:hover {
     text-decoration: underline;
 }
 
+#stories_header {
+
+	border: 1px solid #999900
+}
+
