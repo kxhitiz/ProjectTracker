@@ -1,6 +1,7 @@
 class Story < ActiveRecord::Base
   belongs_to :project
   before_create :setDefaults
+  has_one :person
 
   validates :weight, :presence => true, :numericality => true
   validates :title, :presence => true, :uniqueness => true

@@ -2,7 +2,8 @@ class Person < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_many :projects, :through => :connection
+  has_many :projects, :through => :connections
+  has_many :stories
 
   validates :name, :presence => true, :uniqueness => true
   validates :email, :presence => true, :uniqueness => true

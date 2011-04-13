@@ -32,5 +32,12 @@ class StoriesController < ApplicationController
     redirect_to project_story_path(@project, @story)
   end
 
+  def change_status
+    @story = Story.find(params[:story_id])
+    @project = Project.find(params[:project_id])
+    @story.update_attributes(:status => params[:status])
+    redirect_to project_story_path(@project,@story)
+  end
+
 end
 

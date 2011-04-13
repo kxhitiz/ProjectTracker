@@ -1,9 +1,10 @@
 class Project < ActiveRecord::Base
   has_many :stories, :dependent => :destroy
-  has_many :person, :through => :connection
+  has_many :people, :through => :connections
 
   validates :title, :presence => true
   validates :description, :presence => true
+
 end
 
 

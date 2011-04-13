@@ -18,6 +18,8 @@
       %br
       = "Owner: #{@owner.name}"
       %br
+      = pluralize(@project.points, "point")
+      %br
       = calculate_status(@project)
       %br
 #people_project

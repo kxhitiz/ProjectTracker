@@ -1,0 +1,5 @@
+<% form_tag (project_story_change_status_path(@project,@story)) do %>
+  <%= select_tag "status", options_for_select([ ["Requested"],["Accepted"],["Finished"],["Rejected"] ]) %>
+  <%= submit_tag "Change Status" %>
+<% end %>
+

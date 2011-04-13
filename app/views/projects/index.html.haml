@@ -5,6 +5,7 @@
 #my_projects
  - @projects.each do |project|
   = link_to "#{project.title}", project_path(project)
+  = pluralize(project.points, "point")
   = link_to "Edit", edit_project_path(project)
   = link_to "Delete", project_path(project), :confirm => "Sure, wanna delete?", :method => :delete
   %br

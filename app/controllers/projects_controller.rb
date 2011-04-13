@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
 
   before_filter :authenticate_person!
+
   def index
-    @projects = Project.all
+    #@projects = Project.all
+    @projects = current_person_project
   end
 
   def show
@@ -71,5 +73,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def current_person_project
+    project = []
+    Connection.find(:all, :conditions => [ "person_id = ? ", current_person.id ]).each do |connection|
+      project << Project.find(connection.project_id)
+    end
+    return project
+  end
 end
 

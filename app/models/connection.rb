@@ -1,6 +1,8 @@
 class Connection < ActiveRecord::Base
   validates :person_id, :presence => true
   validates :project_id, :presence => true
+  belongs_to :person
+  belongs_to :project
 
 end
 

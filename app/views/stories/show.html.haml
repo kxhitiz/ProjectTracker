@@ -3,7 +3,10 @@
 = @story.description
 %br
 = @story.status
+.story_status_change
+  = render "status_change_form"
 .assign_story
-  = @story.person_id
+  = "Currently assigned to "
+  = getName(@story.person_id)
   = render "assign_story_form"
 

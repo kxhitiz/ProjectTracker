@@ -16,6 +16,7 @@ ProjectTracker::Application.routes.draw do
   resources :projects do
     resources :stories do
       post "assign"
+      post "change_status"
     end
 
     post "addCollaborator"
