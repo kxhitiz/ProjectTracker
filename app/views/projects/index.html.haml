@@ -1,14 +1,14 @@
 #project_index_header
   %h2 My Projects
-  = link_to "+Add Project", new_project_path
+  = link_to image_tag('add.gif', :alt => 'Add new Project') + "Add Project", new_project_path, :id => "Add Project", :title => "Add new Project"
 
 #my_projects
   - @projects.each do |project|
     = link_to "#{project.title}", project_path(project)
     = pluralize(project.points, "point")
     -if is_owner(project)
-      =link_to "Edit", edit_project_path(project)
+      =link_to image_tag("edit_icon.gif", :alt => "Click to Edit"), edit_project_path(project), :id => "Edit", :title => "Click to Edit"
     -if is_owner(project)
-      =link_to "Delete", project_path(project), :confirm => "Sure, wanna delete?", :method => :delete
+      =link_to image_tag("delete_icon.gif"), project_path(project), :title => "Click to Delete", :id => "Delete", :confirm => "Sure, wanna delete?", :method => :delete
     %br
 

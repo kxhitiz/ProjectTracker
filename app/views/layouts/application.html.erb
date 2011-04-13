@@ -23,15 +23,12 @@
       <h1 class="logo"><a href="#">PTracker</a></h1>
       <ul>
         <li><%= link_to "Home", projects_path %> </li>
-        <li><a href="">ABOUT</a></li>
-        <li>
             <% if person_signed_in? %>
-                <%= link_to "LogOut", destroy_person_session_path %>
+                <li> <%= link_to "Message(3)", person_messages_path(current_person) %> </li>
+                <li> <%= link_to "LogOut", destroy_person_session_path %> </li>
             <% else %>
-                <%= link_to "LogIn", new_person_session_path %>
+                <li><%= link_to "LogIn", new_person_session_path %></li>
             <% end %>
-        </li>
-
       </ul>
     </div>
   </div>

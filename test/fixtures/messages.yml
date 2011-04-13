@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  content: MyString
+  status: MyString
+
+two:
+  content: MyString
+  status: MyString
+
+# == Schema Information
+#
+# Table name: messages
+#
+#  id         :integer         not null, primary key
+#  content    :string(255)
+#  status     :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  person_id  :integer
+#
+

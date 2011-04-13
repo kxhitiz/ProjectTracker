@@ -1,5 +1,9 @@
 ProjectTracker::Application.routes.draw do
 
+  #get "messages/index"
+
+  #get "messages/show"
+
   #get "stories/index"
 
   #get "stories/new"
@@ -12,6 +16,9 @@ ProjectTracker::Application.routes.draw do
 
   get "home/index"
 
+  resources :people do
+    resources :messages
+  end
 
   resources :projects do
     resources :stories do

@@ -4,6 +4,7 @@ class Person < ActiveRecord::Base
 
   has_many :projects, :through => :connections
   has_many :stories
+  has_many :messages
 
   validates :name, :presence => true, :uniqueness => true
   validates :email, :presence => true, :uniqueness => true
