@@ -49,3 +49,4 @@ Then /^I should see "([^"]*)" message$/ do |text|
     assert page.has_content?(text)
   end
 end
+

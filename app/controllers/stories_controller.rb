@@ -40,8 +40,8 @@ class StoriesController < ApplicationController
     content_me = "You have changed Status of #{@story.title} of project #{@project.title} to #{params[:status]}"
     content_to_send = "Status of #{@story.title} of project #{@project.title} changed to #{params[:status]} by #{current_person.name}"
     @to = Person.find(@story.person_id)
-    current_person.messages.create!(:content => content_me, :status => "unread")
-    @to.messages.create!(:content => content_to_send, :status => "unread")
+    current_person.messages.create!(:content => content_me, :status => "unread", :project_id => @project.id, :story_id => @story.id)
+    @to.messages.create!(:content => content_to_send, :status => "unread", :project_id => @project.id, :story_id => @story.id)
     redirect_to project_story_path(@project,@story)
   end
 

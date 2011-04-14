@@ -1,0 +1,12 @@
+h1=. Project Tracker
+
+h2. An attempt to make a simple ProjectTracking WebApp
+
+h3. Features of the app are
+
+* User authentication using devise
+* Notification is sent to users of the event he is connected
+* Full protection for unauthorized access to ones Project & Story
+
+Suggestions are warmly welcomed :)
+

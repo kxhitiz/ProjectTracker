@@ -148,3 +148,17 @@ a:hover {
 	border: 1px solid #999900
 }
 
+.new_message {
+    background-color: #7D0202;
+    color: #FFFFFF;
+    font-size: 10px
+}
+
+#message_list {
+    padding: 12px;
+    margin: 5px;
+    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
+}
+
+}
+

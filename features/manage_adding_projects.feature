@@ -17,9 +17,12 @@ wants [behaviour]
 @javascript
   Scenario: Edit the project
     Given I am authenticated
-    Given a project exists with title "Sprout Note" and description "This is for sprouters"
+    Given I am on the new adding_project page
+    And when I fill in "Title" with "SproutTube"
+    And when I fill in "Description" with "Online Video Streaming Site"
+    And I press "Create Project"
     Then 1 project should exist
-    Given I am on the projects page
+    Then I should see "Project Added Successfully" message
     And I follow "Edit"
     And when I fill in "Title" with "Online SproutTube"
     And I press "Update Project"
@@ -53,7 +56,4 @@ wants [behaviour]
    And I press "Create Story"
    Then I should see "Story Created Successfully"
    Then 1 story should exist
-
-
-
 

@@ -24,7 +24,8 @@
       <ul>
         <li><%= link_to "Home", projects_path %> </li>
             <% if person_signed_in? %>
-                <li> <%= link_to "Message(3)", person_messages_path(current_person) %> </li>
+                <% @count = Message.find(:all, :conditions => [ 'person_id = ? and status = ?', current_person.id, "unread" ]).count %>
+                <li> <%= link_to "Message(#{@count})", person_messages_path(current_person) %> </li>
                 <li> <%= link_to "LogOut", destroy_person_session_path %> </li>
             <% else %>
                 <li><%= link_to "LogIn", new_person_session_path %></li>
@@ -38,7 +39,7 @@
     <div id="content_sup" class="head_pad">
       <div id="welcom_pan">
 
-        <h2><span>Welcome</span>to ProjectTracker</h2>
+        <h2><%= render "shared/bread_crumb" %> </h2>
       </div> <br />
       <div id="main_content">
         <p class="notice"><i><%= notice %></i></p>

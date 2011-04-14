@@ -1,5 +1,10 @@
 class Message < ActiveRecord::Base
   belongs_to :person
+
+  def changeStatus
+    self.status = "read"
+    self.save
+  end
 end
 
 
