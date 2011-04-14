@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 describe Person do
-
+  it { should have_many (:projects) }
+  it { should have_many (:stories) }
+  it { should have_many (:messages) }
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :email }
 end
+
+
 # == Schema Information
 #
 # Table name: people
@@ -20,5 +26,3 @@ end
 #  created_at           :datetime
 #  updated_at           :datetime
 #  name                 :string(255)
-#
-

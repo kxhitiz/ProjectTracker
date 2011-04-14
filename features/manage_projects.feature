@@ -28,16 +28,6 @@ Background:
    Then I should see "Project Deleted Successfully"
 
 
-  Scenario: Add story to the project
-   And I follow "SproutTube"
-   And I follow "+Add Story"
-   And I fill in "Title" with "Story1"
-   And I fill in "Weight" with "2"
-   And I press "Create Story"
-   Then I should see "Story Created Successfully"
-   Then 1 story should exist
-
-
   Scenario: Assign a person to the project
     And I follow "SproutTube"
     And I select "Ram" from "people"
