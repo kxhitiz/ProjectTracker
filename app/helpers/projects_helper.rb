@@ -15,8 +15,5 @@ module ProjectsHelper
     return points
   end
 
-  def calculate_status(project)
-
-  end
 end
 

@@ -215,3 +215,7 @@ input[type="submit"] {
   padding: 4px;
 }
 
+#bread_crumb {
+  text-align: right;
+}
+

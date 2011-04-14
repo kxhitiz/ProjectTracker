@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_filter :authenticate_person!
+
   def index
     @person = current_person
     @messages = @person.messages.order("created_at DESC")
