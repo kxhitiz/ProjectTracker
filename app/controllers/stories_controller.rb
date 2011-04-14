@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_filter :authenticate_person!
+
   def index
   end
 
@@ -11,6 +13,21 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @project = Project.find(params[:project_id])
     @people = find_people_in_this_project(@project)
+  end
+
+   def edit
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:id])
+    if @story.update_attributes(params[:story])
+     redirect_to(project_path(@project), :notice => "Story Updated Successfully")
+    else
+      render :action => "edit", :alert => "Story Update Failure!!"
+    end
   end
 
   def create

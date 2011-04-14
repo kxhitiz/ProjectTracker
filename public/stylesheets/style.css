@@ -139,44 +139,83 @@ a {
 }
 
 a:hover {
-    color: #0074B3;
-    text-decoration: underline;
+  color: #0074B3;
+  text-decoration: underline;
 }
 
 #stories_header {
-	border: 1px solid #999900
+  border: 1px solid #999900
 }
 
 .new_message {
-    background-color: #7D0202;
-    color: #FFFFFF;
-    font-size: 10px
+  background-color: #7D0202;
+  color: #FFFFFF;
+  font-size: 10px
 }
 
 #message_list {
-    padding: 12px;
-    margin: 5px;
-    box-shadow: 5px 10px 5px rgba(0,0,0,.2);
+  padding: 12px;
+  margin: 5px;
+  box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
 
 #my_projects_title {
-    font-size: 16px;
-    font-weight: bold
+  font-size: 16px;
+  font-weight: bold
 }
 
 #add_project {
-    float: right;
+  float: right;
 }
 
 #project_index_header {
-    border-bottom: 1px solid #999900
+  border-bottom: 1px solid #999900
 }
 
 #stories_title  {
   font-weight: bold;
+  padding-left: 10px;
 }
 
 #add_story {
   float: right;
+  padding-right: 10px;
+}
+
+#project_submit {
+  padding: 3px;
+}
+
+#story_submit {
+  padding: 3px;
+}
+
+input[type="submit"] {
+  padding: 1px;
+  margin-left: 5px
+}
+
+#person_submit {
+  margin: 5px;
+}
+
+#my_projects {
+  margin-top: 5px
+}
+
+.project_list {
+  border: 1px solid #DDDDDD;
+  margin: 10px;
+  padding: 4px;
+}
+
+.story_list {
+  border: 1px solid #DDDDDD;
+  margin: 10px;
+  padding: 4px;
+}
+
+#bread_crumb {
+  text-align: right;
 }
 

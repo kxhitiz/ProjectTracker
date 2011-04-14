@@ -39,7 +39,16 @@
     <div id="content_sup" class="head_pad">
       <div id="welcom_pan">
 
-        <h2><%= render "shared/bread_crumb" %> </h2>
+        <div id="bread_crumb">
+        <% if @projects %>
+           <%# "Home" %>
+        <% elsif @project and @stories %>
+          <%= link_to "Projects", projects_path %>
+        <% elsif @story and @project %>
+          <%= link_to "Projects", projects_path %> >>
+          <%= link_to "Stories", project_path(@project) %>
+        <% end %>
+        </div>
       </div> <br />
       <div id="main_content">
         <p class="notice"><i><%= notice %></i></p>

@@ -1,3 +1,7 @@
-%h1 Edit Project
-= render 'form'
+- if is_owner(@project)
+  %h1 Edit Project
+  %br
+  = render 'form'
+- else
+  = "Sorry! Unauthorized Access!"
 

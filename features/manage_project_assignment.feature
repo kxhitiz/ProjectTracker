@@ -1,5 +1,8 @@
 @javascript
 Feature: Manage project assignment
+  In order to get project assigned
+  As a User
+  I want to be able to login
 
 Background:
   Given I am authenticated as "Duke"
