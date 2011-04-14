@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
 
   def current_person_project
     project = []
-    Connection.find(:all, :conditions => [ "person_id = ? ", current_person.id ]).each do |connection|
+    Connection.find(:all, :order => 'id DESC', :conditions => [ "person_id = ? ", current_person.id ]).each do |connection|
       project << Project.find(connection.project_id)
     end
     return project

@@ -5,12 +5,12 @@
 
 #my_projects
   - @projects.each do |project|
-    = link_to "#{project.title}", project_path(project)
-    - points = calculate_points(project)
-    = pluralize(points, "point")
-    -if is_owner(project)
-      =link_to image_tag("edit_icon.gif", :alt => "Click to Edit"), edit_project_path(project), :id => "Edit", :title => "Click to Edit"
-    -if is_owner(project)
-      =link_to image_tag("delete_icon.gif"), project_path(project), :title => "Click to Delete", :id => "Delete", :confirm => "Sure, wanna delete?", :method => :delete
-    %br
+    .project_list
+      = link_to "#{project.title}", project_path(project)
+      - points = calculate_points(project)
+      = pluralize(points, "point")
+      -if is_owner(project)
+        =link_to image_tag("edit_icon.gif", :alt => "Click to Edit"), edit_project_path(project), :id => "Edit", :title => "Click to Edit"
+        =link_to image_tag("delete_icon.gif"), project_path(project), :title => "Click to Delete", :id => "Delete", :confirm => "Sure, wanna delete?", :method => :delete
+      %br
 

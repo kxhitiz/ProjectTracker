@@ -14,23 +14,21 @@
       = link_to image_tag('add.gif', :alt => 'Add new Story') + "Add Story", new_project_story_path(@project), :id => "Add Story", :title => "Add new Story"
 
 #stories_list
-  .stories_list
-    - if @stories.each.count < 1
-      %em
-        = "No Stories Yet!"
+  - if @stories.each.count < 1
+    %em
+      = "No Stories Yet!"
 
-    - @stories.each do |story|
-      %br
+  - @stories.each do |story|
+    .story_list
       = link_to "#{story.title}", project_story_path(@project, story)
 
-      = "Owner: #{@owner.name}"
+      = "owned by #{@owner.name} has "
 
       = pluralize(story.weight, "point")
 
-      = story.status
       - if is_owner(@project)
+        = link_to image_tag("edit_icon.gif", :alt => "Click to Edit"), edit_project_story_path(@project, story), :id => "Edit", :title => "Click to Edit"
         = link_to image_tag("delete_icon.gif"), project_story_path(@project, story), :title => "Click to Delete", :id => "Delete", :confirm => "Sure, wanna delete?", :method => :delete
-      %hr
 
 #people_project
   = render "shared/connected_people"

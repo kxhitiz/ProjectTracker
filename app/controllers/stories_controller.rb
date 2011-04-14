@@ -13,6 +13,21 @@ class StoriesController < ApplicationController
     @people = find_people_in_this_project(@project)
   end
 
+   def edit
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:id])
+    if @story.update_attributes(params[:story])
+     redirect_to(project_path(@project), :notice => "Story Updated Successfully")
+    else
+      render :action => "edit", :alert => "Story Update Failure!!"
+    end
+  end
+
   def create
     @project = Project.find(params[:project_id])
     @story = @project.stories.new(params[:story])
