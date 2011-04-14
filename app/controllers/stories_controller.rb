@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @story = @project.stories.new(params[:story])
-    @story.status = "Not Yet Started"
+    @story.setDefaults
     #@story.person_id = current_person.id
     if @story.save
       redirect_to project_path(@project), :notice => "Story Created Successfully"
@@ -25,11 +25,23 @@ class StoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:id])
+    #Connection.where("project_id = ?", @project.id).delete_all
+    if @story.destroy
+       redirect_to project_path(@project), :notice => "Story Deleted Successfully"
+    else
+       redirect_to project_path(@project), :alert => "Story Deletion Failed!!"
+    end
+  end
+
   def assign
     @story = Story.find(params[:story_id])
     @project = Project.find(params[:project_id])
     @person = Person.find(params[:people])
     @story.update_attributes(:person_id => @person.id)
+    send_assign_message(@story, @project, @person)
     redirect_to project_story_path(@project, @story)
   end
 

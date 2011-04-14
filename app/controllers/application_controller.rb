@@ -10,5 +10,13 @@ class ApplicationController < ActionController::Base
   return @project_people
   end
 
+  def send_assign_message(story,project, person)
+    content_me = "You have assigned #{story.title} of project #{project.title} to #{person.name}"
+    content_to_send = "Hello, you have been assigned to #{@story.title} of project #{@project.title} by #{current_person.name}"
+
+    current_person.messages.create!(:content => content_me, :status => "unread", :project_id => project.id, :story_id => story.id)
+    person.messages.create!(:content => content_to_send, :status => "unread", :project_id => project.id, :story_id => story.id)
+  end
+
 end
 

@@ -3,8 +3,9 @@
 = @story.description
 %br
 = @story.status
-- if (is_owner(@project) or is_authorized(@story))
+- if (is_owner(@project) or is_authorized(@story) and @story.person_id)
   .story_status_change= render "status_change_form"
+
 .assign_story
   = "Currently assigned to "
   - if @story.person_id

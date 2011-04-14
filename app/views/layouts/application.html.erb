@@ -25,7 +25,7 @@
         <li><%= link_to "Home", projects_path %> </li>
             <% if person_signed_in? %>
                 <% @count = Message.find(:all, :conditions => [ 'person_id = ? and status = ?', current_person.id, "unread" ]).count %>
-                <li> <%= link_to "Message(#{@count})", person_messages_path(current_person) %> </li>
+                <li> <%= link_to "Message(#{@count} new)", person_messages_path(current_person) %> </li>
                 <li> <%= link_to "LogOut", destroy_person_session_path %> </li>
             <% else %>
                 <li><%= link_to "LogIn", new_person_session_path %></li>

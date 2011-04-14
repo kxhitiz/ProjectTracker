@@ -1,15 +1,18 @@
 %h2
-  = "#{@project.title}"
-  = pluralize("#{@project.points}","point")
+  = "#{@project.title} ("
+  - points = calculate_points(@project)
+  = pluralize("#{points}","point")
+  = ")"
 %br
 = "#{@project.description}"
 %br
 %br
 #stories_header
-  %span Stories
-  %span#addStory
+  %span#stories_title Stories
+  %span#add_story
     - if is_owner(@project)
-      = link_to "+Add Story", new_project_story_path(@project)
+      = link_to image_tag('add.gif', :alt => 'Add new Story') + "Add Story", new_project_story_path(@project), :id => "Add Story", :title => "Add new Story"
+
 #stories_list
   .stories_list
     - if @stories.each.count < 1
@@ -19,15 +22,16 @@
     - @stories.each do |story|
       %br
       = link_to "#{story.title}", project_story_path(@project, story)
-      %br
-      = "Description: #{story.description}"
-      %br
+
       = "Owner: #{@owner.name}"
-      %br
+
       = pluralize(story.weight, "point")
-      %br
-      = calculate_status(@project)
+
+      = story.status
+      - if is_owner(@project)
+        = link_to image_tag("delete_icon.gif"), project_story_path(@project, story), :title => "Click to Delete", :id => "Delete", :confirm => "Sure, wanna delete?", :method => :delete
       %hr
+
 #people_project
   = render "shared/connected_people"
 
