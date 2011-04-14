@@ -1,6 +1,18 @@
 %h2 Message List
 - @messages.each do |message|
-  = message.content
-  %br
-  %hr
+  #message_list
+    = message.content
+    = "#{time_ago_in_words(message.created_at)} ago! "
+    %br
+    = "Now Goto this "
+    = link_to "Project", project_path(message.project_id)
+    = " or "
+    = link_to "Story", project_story_path(message.project_id, message.story_id)
+    %em.new_message
+      = "New Message" if message.status == "unread"
+    = link_to image_tag("delete_icon.gif"), person_message_path(current_person.id, message), :title => "Click to Delete", :id => "Delete", :confirm => "Sure, wanna delete?", :method => :delete
+    %br
+
+- @messages.each do |message|
+  - message.changeStatus
 

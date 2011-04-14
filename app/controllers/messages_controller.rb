@@ -1,11 +1,17 @@
 class MessagesController < ApplicationController
   def index
     @person = current_person
-    @messages = @person.messages
-
+    @messages = @person.messages.order("created_at DESC")
   end
 
-  def show
+  def destroy
+    @person = Person.find(params[:person_id])
+    @message = @person.messages.find(params[:id])
+    if @message.destroy
+      redirect_to person_messages_path(@person), :notice => "Message Deleted Successfully"
+    else
+      redirect_to person_messages_path(@person), :alert => "Oops! Delete Unsuccessfull, try Again"
+    end
   end
 
 end
