@@ -1,3 +1,4 @@
+@javascript
 Feature: Manage projects
 
 
@@ -10,7 +11,7 @@ Background:
   Then 1 project should exist
   Then I should see "Project Added Successfully" message
 
-@javascript
+
   Scenario: Edit the project
     Given I am on the projects page
     And I follow "Click to Edit"
@@ -46,11 +47,10 @@ Background:
 
 @javascript
   Scenario: Remove a person from the project
-
      And I follow "SproutTube"
-
-             And I follow "Remove"
-             Then I should see "Prashiddha is now removed from SproutTube"
+     And I follow "Remove"
+     And I sleep for "3" seconds
+     Then I should see "prashidha is now removed from SproutTube"
 
 
 

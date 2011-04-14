@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_person!
 
   def index
-    #@projects = Project.all
     @projects = current_person_project
   end
 
@@ -38,7 +37,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
-     redirect_to(projects_path, :notice => "Project Updated Successfully")
+      redirect_to(projects_path, :notice => "Project Updated Successfully")
     else
       render :action => "edit", :alert => "Project Update Failure!!"
     end
@@ -46,11 +45,11 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
-     Connection.where("project_id = ?", @project.id).delete_all
-     if @project.destroy
-       redirect_to projects_path, :notice => "Project Deleted Successfully"
+    Connection.where("project_id = ?", @project.id).delete_all
+    if @project.destroy
+      redirect_to projects_path, :notice => "Project Deleted Successfully"
     else
-       redirect_to projects_path, :alert => "Project Deletion Failed!!"
+      redirect_to projects_path, :alert => "Project Deletion Failed!!"
     end
   end
 

@@ -8,6 +8,7 @@ class Message < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: messages
@@ -18,5 +19,7 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #  person_id  :integer
+#  project_id :integer
+#  story_id   :integer
 #
 

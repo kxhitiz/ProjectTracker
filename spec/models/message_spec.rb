@@ -1,13 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  content: MyString
-  status: MyString
-
-two:
-  content: MyString
-  status: MyString
-
 
 # == Schema Information
 #
