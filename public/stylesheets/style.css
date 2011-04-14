@@ -144,7 +144,6 @@ a:hover {
 }
 
 #stories_header {
-
 	border: 1px solid #999900
 }
 
@@ -160,5 +159,24 @@ a:hover {
     box-shadow: 5px 10px 5px rgba(0,0,0,.2);
 }
 
+#my_projects_title {
+    font-size: 16px;
+    font-weight: bold
+}
+
+#add_project {
+    float: right;
+}
+
+#project_index_header {
+    border-bottom: 1px solid #999900
+}
+
+#stories_title  {
+  font-weight: bold;
+}
+
+#add_story {
+  float: right;
 }
 
