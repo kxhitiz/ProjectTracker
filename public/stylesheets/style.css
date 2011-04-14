@@ -180,3 +180,16 @@ a:hover {
   float: right;
 }
 
+#project_submit {
+  padding: 3px;
+}
+
+#story_submit {
+  padding: 3px;
+}
+
+input[type="submit"] {
+    padding: 1px;
+    margin-left: 5px
+}
+

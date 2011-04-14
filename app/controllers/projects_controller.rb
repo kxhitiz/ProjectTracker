@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_person!
 
   def index
-    #@projects = Project.all
     @projects = current_person_project
   end
 

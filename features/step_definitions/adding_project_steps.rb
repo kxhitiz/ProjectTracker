@@ -29,7 +29,7 @@ end
 Given /^a project exists with title "([^"]*)" and description "([^"]*)"$/ do |title, description|
   @project = Project.create!(:title => title , :description => description)
   Connection.create!(:project_id => Project.first.id, :person_id => Person.first.id, :types => "owner")
-  @project.person_id = Person.first.id
+
 end
 
 Then /^the project should have title "([^"]*)" and description "([^"]*)"$/ do |arg1, arg2|
