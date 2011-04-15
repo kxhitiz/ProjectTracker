@@ -11,16 +11,21 @@
   <div id="head_cen">
     <div id="head_sup" class="head_pad">
       <p class="search">
-        <label>SEARCH</label>
-        <input name="search" type="text" class="txt" />
-        <input name="search-btn" type="submit" class="btn" value="SEARCH" />
+        <div>
+        <%= form_tag projects_path, :method => "get" do %>
+          <%= text_field_tag :search, params[:search], :size => 15, :value => "Search Text Here" %>
+          <%= submit_tag "Search", :name => nil%>
+        <% end %>
+        </div>
+      <!--  <input name="search" type="text" class="txt" />
+        <input name="search-btn" type="submit" class="btn" value="SEARCH" /> -->
         <span id="welcome_user">
           <% if person_signed_in? %>
               <%= " Welcome #{current_person.name}" %>
           <% end %>
         </span>
       </p>
-      <h1 class="logo"><a href="#">PTracker</a></h1>
+      <h3>ProjectTracker</h3>
       <ul>
         <li><%= link_to "Home", projects_path %> </li>
             <% if person_signed_in? %>

@@ -1,9 +1,11 @@
-People in this Project <br />
+<u>People in this Project</u> <br />
 <% @connected_people = connected_people(@collaborators) %>
 <% @connected_people.each do |person| %>
     <%= person.name %>
-    <% if is_owner(@project) %>
-      <%= link_to "Remove", project_removeCollaborator_path(@project.id, :person_id => person.id) %>
+    <% if person.id != @project.person_id %>
+      <% if is_owner(@project) %>
+        <%= link_to "Remove", project_removeCollaborator_path(@project.id, :person_id => person.id) %>
+      <% end %>
     <% end %>
     <br />
 <% end %>

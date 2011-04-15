@@ -1,9 +1,6 @@
 class StoriesController < ApplicationController
   before_filter :authenticate_person!
 
-  def index
-  end
-
   def new
     @project = Project.find(params[:project_id])
     @story = @project.stories.new
@@ -66,11 +63,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:story_id])
     @project = Project.find(params[:project_id])
     @story.update_attributes(:status => params[:status])
-    content_me = "You have changed Status of #{@story.title} of project #{@project.title} to #{params[:status]}"
-    content_to_send = "Status of #{@story.title} of project #{@project.title} changed to #{params[:status]} by #{current_person.name}"
-    @to = Person.find(@story.person_id)
-    current_person.messages.create!(:content => content_me, :status => "unread", :project_id => @project.id, :story_id => @story.id)
-    @to.messages.create!(:content => content_to_send, :status => "unread", :project_id => @project.id, :story_id => @story.id)
+    send_status_change_msg(@project, @story, params[:status])
     redirect_to project_story_path(@project,@story)
   end
 

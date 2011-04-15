@@ -3,7 +3,11 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_person!
 
   def index
-    @projects = current_person_project
+    if params[:search]
+       @projects = Project.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
+    else
+      @projects = current_person_project
+    end
   end
 
   def show
@@ -16,8 +20,8 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
-    @project.person_id = current_person.id # no need
-    @project.points = 0
+    @project.person_id = current_person.id
+    @project.setDefaults
     if @project.save
       Connection.create(:project_id => @project.id, :person_id => current_person.id, :types => "owner")
       redirect_to projects_path, :notice => "Project Added Successfully"
