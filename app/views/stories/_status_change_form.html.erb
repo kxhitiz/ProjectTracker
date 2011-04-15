@@ -1,4 +1,4 @@
-<% form_tag (project_story_change_status_path(@project,@story)) do %>
+<%= form_tag (project_story_change_status_path(@project,@story)) do %>
   <% if is_owner(@project) %>
     <%= select_tag "status", options_for_select([ ["Accepted"],["Rejected"] ]) %>
   <% elsif is_authorized(@story) %>

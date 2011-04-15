@@ -217,9 +217,15 @@ input[type="submit"] {
 
 #bread_crumb {
   text-align: right;
+  padding-top: 8px;
+  padding-right: 15px;
 }
 
 #welcome_user {
-  color: #DDDDDD;
+  color: #969696;
 }
 
+#search {
+  background: #969696;
+  border: 3px solid #969696;
+}

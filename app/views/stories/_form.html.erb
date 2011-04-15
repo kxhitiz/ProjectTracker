@@ -1,7 +1,7 @@
 <%= semantic_form_for ([@project, @story]) do |form| %>
     <%= form.inputs do %>
             <%= form.input :title %>
-            <%= form.input :description %>
+            <%= form.input :description, :as => :text, :input_html => { :rows => 5, :maxlength => 254 } %>
             <%= form.input :weight %>
         <% end %>
         <%= form.buttons do %>

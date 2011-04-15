@@ -45,14 +45,12 @@
       <div id="welcom_pan">
 
         <div id="bread_crumb">
-        <% if @projects %>
-           <%# "Home" %>
-        <% elsif @project and @stories %>
-          <%= link_to "Projects", projects_path %>
-        <% elsif @story and @project %>
-          <%= link_to "Projects", projects_path %> >>
-          <%= link_to "Stories", project_path(@project) %>
-        <% end %>
+          <% if @project and @stories %>
+            <%= link_to "Projects", projects_path %>
+          <% elsif @story and @project %>
+            <%= link_to "Projects", projects_path %> >>
+            <%= link_to "#{@project.title}", project_path(@project) %>
+          <% end %>
         </div>
       </div> <br />
       <div id="main_content">

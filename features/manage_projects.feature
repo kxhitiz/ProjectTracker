@@ -4,7 +4,6 @@ Feature: Manage projects
   As a User
   I want to be able to login
 
-
 Background:
   Given I am authenticated
   Given I am on the new adding_project page
@@ -31,19 +30,13 @@ Background:
    Then I should see "Project Deleted Successfully"
 
 
-  Scenario: Assign a person to the project
+  Scenario: Assigning and Removing a person from the project
     And I follow "SproutTube"
     And I select "Ram" from "people"
     And I press "Add Now"
     Then I should see "Ram is now added to SproutTube"
-
-
-@javascript
-  Scenario: Remove a person from the project
-     And I follow "SproutTube"
-     And I follow "Remove"
-     And I sleep for "3" seconds
-     Then I should see "prashidha is now removed from SproutTube"
+    And I follow "Remove"
+    Then I should see "Ram is now removed from SproutTube"
 
 
 
