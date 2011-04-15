@@ -5,6 +5,7 @@ class Message < ActiveRecord::Base
     self.status = "read"
     self.save
   end
+
 end
 
 

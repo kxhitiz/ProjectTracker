@@ -1,14 +1,14 @@
 class Project < ActiveRecord::Base
+
   has_many :stories, :dependent => :destroy
   has_many :people, :through => :connections
 
   validates :title, :presence => true
   validates :description, :presence => true
 
-  def setDefaults
-    self.points = 0
-  end
-
+  # def setDefaults
+  #    self.points = 0
+  #  end
 end
 
 

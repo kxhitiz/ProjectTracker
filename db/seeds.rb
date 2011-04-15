@@ -8,6 +8,7 @@
 
  [
     {:name => "HariBahadur", :email => "hari@bahadur.com", :password => "password"},
+    {:name => "MadanBahadur", :email => "madan@bahadur.com", :password => "password"},
     {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},
     {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},
     {:name => Faker::Name.name, :email => Faker::Internet.email, :password => "password"},

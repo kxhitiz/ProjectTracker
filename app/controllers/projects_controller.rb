@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     @project.person_id = current_person.id
-    @project.setDefaults
     if @project.save
       Connection.create(:project_id => @project.id, :person_id => current_person.id, :types => "owner")
       redirect_to projects_path, :notice => "Project Added Successfully"

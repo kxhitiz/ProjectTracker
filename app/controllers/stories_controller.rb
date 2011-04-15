@@ -30,8 +30,6 @@ class StoriesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @story = @project.stories.new(params[:story])
-    @story.setDefaults
-    #@story.person_id = current_person.id
     if @story.save
       redirect_to project_path(@project), :notice => "Story Created Successfully"
     else
@@ -42,7 +40,6 @@ class StoriesController < ApplicationController
   def destroy
     @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
-    #Connection.where("project_id = ?", @project.id).delete_all
     if @story.destroy
        redirect_to project_path(@project), :notice => "Story Deleted Successfully"
     else

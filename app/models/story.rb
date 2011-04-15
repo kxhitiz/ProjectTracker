@@ -1,6 +1,6 @@
 class Story < ActiveRecord::Base
   belongs_to :project
-  has_one :person
+  belongs_to :person
 
   validates :weight, :presence => true, :numericality => true
   validates :title, :presence => true, :uniqueness => true
