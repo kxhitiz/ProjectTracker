@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     if is_owner(project)
       @to.messages.create!(:content => content_to_send, :status => "unread", :project_id => project.id, :story_id => story.id)
     else
-      $to = Person.find(project.person_id)
+      @to = Person.find(project.person_id)
       @to.messages.create!(:content => content_to_send, :status => "unread", :project_id => project.id, :story_id => story.id)
     end
   end
